@@ -1,0 +1,119 @@
+
+let n = Number(prompt("Nhập một số nguyên:"));
+
+if (n % 2 == 0) {
+    alert(n + " là số chẵn");
+} else {
+    alert(n + " là số lẻ");
+}
+
+
+
+
+let kwh = Number(prompt("Nhập số điện đã sử dụng:"));
+let tien = 0;
+
+if (kwh < 0 || isNaN(kwh)) {
+    alert("Số điện không hợp lệ");
+} else {
+    if (kwh <= 50) {
+        tien = kwh * 1800;
+    } else if (kwh <= 100) {
+        tien = 50 * 1800 + (kwh - 50) * 2300;
+    } else {
+        tien = 50 * 1800 + 50 * 2300
+             + (kwh - 100) * 3000;
+    }
+
+    alert("Tiền điện: " +
+        tien.toLocaleString("vi-VN") + " VNĐ");
+}
+
+// Tính ngược số điện với 910.000đ
+let tienDien = 910000;
+let soDien;
+
+if (tienDien <= 90000) {
+    soDien = tienDien / 1800;
+} else if (tienDien <= 205000) {
+    soDien = 50 + (tienDien - 90000) / 2300;
+} else {
+    soDien = 100 + (tienDien - 205000) / 3000;
+}
+
+alert("910.000 VNĐ tương ứng " + soDien + " kWh");
+
+
+
+
+
+
+let chucVu = prompt("Nhập chức vụ (intern, staff, senior, manager):");
+let ngayCong = Number(prompt("Nhập ngày công:"));
+
+let heSo = 0;
+let luongCoBan = 5000000;
+
+switch (chucVu) {
+    case "intern":
+        heSo = 1.0;
+        break;
+    case "staff":
+        heSo = 1.5;
+        break;
+    case "senior":
+        heSo = 2.0;
+        break;
+    case "manager":
+        heSo = 3.0;
+        break;
+    default:
+        alert("Chức vụ không hợp lệ");
+}
+
+if (heSo > 0 && ngayCong >= 0 && ngayCong <= 24) {
+    let luong = heSo * ngayCong * luongCoBan / 24;
+
+    alert("Lương: " +
+        luong.toLocaleString("vi-VN") + " VNĐ");
+} else if (heSo > 0) {
+    alert("Ngày công không hợp lệ");
+}
+
+
+
+
+
+for (let i = 2; i <= 9; i++) {
+    console.log("Bảng nhân " + i);
+
+    for (let j = 1; j <= 10; j++) {
+        console.log(i + " x " + j + " = " + (i * j));
+    }
+
+    console.log("----------------");
+}
+
+
+
+
+
+let n = Number(prompt("Nhập một số nguyên:"));
+let laSoNguyenTo = true;
+
+if (!Number.isInteger(n) || n < 2) {
+    laSoNguyenTo = false;
+} else {
+    for (let i = 2; i < n; i++) {
+        if (n % i == 0) {
+            laSoNguyenTo = false;
+            break;
+        }
+    }
+}
+
+if (laSoNguyenTo) {
+    alert(n + " là số nguyên tố");
+} else {
+    alert(n + " không phải là số nguyên tố");
+}
